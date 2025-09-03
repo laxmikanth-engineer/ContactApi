@@ -1,6 +1,11 @@
+using ContactAPI.Data;
 using ContactAPI.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// DbContext and Connection String
+builder.Services.AddDbContext<ContactDbContext>(cdb => cdb.UseSqlServer(builder.Configuration.GetConnectionString("ContactDbConnectionString")), ServiceLifetime.Singleton);
 
 // Add services to the container.
 
@@ -13,6 +18,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IContactService, ContactService>();
+builder.Services.AddScoped<IContactDbService, ContactDbService>();
+
 
 var app = builder.Build();
 

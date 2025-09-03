@@ -55,7 +55,7 @@ namespace ContactAPI.Controllers
         public IActionResult Put([FromRoute] int id, [FromBody] Contact _contact) 
         {
             _contact.Id = id;
-            var contact = _contactService.UpdateContact(_contact);
+            var contact = _contactService.UpdateContactAsync(_contact);
 
             if (contact == null)
             {

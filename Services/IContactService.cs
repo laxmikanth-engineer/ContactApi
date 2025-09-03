@@ -7,7 +7,7 @@ namespace ContactAPI.Services
         List<Contact> GetAllContacts(bool? isActive);
         Contact? GetContactById(int id);
         Contact AddContact(Contact contact);
-        Contact UpdateContact(Contact contact);
+        Contact UpdateContactAsync(Contact contact);
         bool DeleteContact(int id);
     }
 }

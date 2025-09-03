@@ -39,7 +39,7 @@ namespace ContactAPI.Services
             return contact;
         }
 
-        public Contact? UpdateContact(Contact contact)
+        public Contact? UpdateContactAsync(Contact contact)
         {
             var existContact = _contacts.FindIndex(index => index.Id == contact.Id);
 
